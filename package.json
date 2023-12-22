@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "start": "node dist/server.js",
+    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "lint:fix": "npx eslint src --fix",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts",
-    "prettier": "prettier --ignore-path .gitignore --write src \"**/*.+(js|ts|json)\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier": "prettier --ignore-path .gitignore --write src \"**/*.+(js|ts|json)\""
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +17,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^8.0.2"
+    "mongoose": "^8.0.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

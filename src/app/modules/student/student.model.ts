@@ -30,7 +30,7 @@ export const localGuardianSchema = new Schema<LocalGuardianInterface>({
 
 export const studentSchema = new Schema<StudentInterface>({
   id: { type: String, required: true },
-  name: studentNameSchema,
+  name: { type: studentNameSchema, required: true },
   gender: {
     type: String,
     enum: {
@@ -47,11 +47,12 @@ export const studentSchema = new Schema<StudentInterface>({
     enum: {
       values: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
     },
+    required: true,
   },
   presentAddress: { type: String, required: true },
   permanentAddress: { type: String, required: true },
-  guardian: guardianSchema,
-  localGuardian: localGuardianSchema,
+  guardian: { type: guardianSchema, required: true },
+  localGuardian: { type: localGuardianSchema, required: true },
   profileImg: { type: String },
   isActive: {
     type: String,
