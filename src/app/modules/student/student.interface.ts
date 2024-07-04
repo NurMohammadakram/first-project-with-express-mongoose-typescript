@@ -1,3 +1,5 @@
+import { Model, Types } from 'mongoose';
+
 export type StudentNameInterface = {
   firstName: string;
   middleName?: string;
@@ -20,6 +22,7 @@ export type LocalGuardianInterface = {
 
 export type StudentInterface = {
   id: string;
+  user: Types.ObjectId;
   name: StudentNameInterface;
   gender: 'male' | 'female';
   dateOfBirth: string;
@@ -32,5 +35,10 @@ export type StudentInterface = {
   guardian: GuardianInterface;
   localGuardian: LocalGuardianInterface;
   profileImg?: string;
-  isActive: 'active' | 'blocked';
+  isDeleted: boolean;
 };
+
+export interface StudentStaticModel extends Model<StudentInterface> {
+  // eslint-disable-next-line no-unused-vars
+  isUserExists(id: string): Promise<StudentInterface>;
+}
